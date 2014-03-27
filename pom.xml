@@ -1,21 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.plugback</groupId>
-  <artifactId>active</artifactId>
-  <version>1.0.0-BETA</version>
-  <packaging>jar</packaging>
+	<groupId>com.plugback</groupId>
+	<artifactId>active</artifactId>
+	<version>1.0.0-BETA</version>
+	<packaging>jar</packaging>
 
-  <name>active</name>
-  <url>http://maven.apache.org</url>
+	<name>active</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-    <dependency>
+	<dependencies>
+		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
 			<version>2.5.3</version>
@@ -26,13 +26,13 @@
 			<artifactId>org.eclipse.xtend.core</artifactId>
 			<version>2.5.3</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
-		</dependency>	
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -40,19 +40,19 @@
 			<version>1.7.6</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 			<version>2.5.1</version>
 			<scope>test</scope>
 		</dependency>
-  </dependencies>
-  
-  <build>
+	</dependencies>
+
+	<build>
 		<finalName>plugback-active</finalName>
 
-		
+
 
 		<plugins>
 			<plugin>
@@ -76,67 +76,68 @@
 							<goal>compile</goal>
 							<goal>testCompile</goal>
 						</goals>
-						<configuration> <outputDirectory>${basedir}/src/main/xtend-gen</outputDirectory> 
-							<testOutputDirectory>${basedir}/src/test/xtend-gen</testOutputDirectory> 
-							</configuration>
+						<configuration>
+							<outputDirectory>${basedir}/src/main/xtend-gen</outputDirectory>
+							<testOutputDirectory>${basedir}/src/test/xtend-gen</testOutputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <id>add-source</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>src/main/xtend-gen</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>add-test-source</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>src/test/xtend-gen</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-			
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/xtend-gen</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-test-source</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/test/xtend-gen</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
-	<artifactId>maven-clean-plugin</artifactId>
-		<version>2.5</version>
-		<configuration>
-			<filesets>
-				<fileset>
-					<directory>src/main/xtend-gen</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileset>
-				<fileset>
-					<directory>src/test/xtend-gen</directory>
-					<includes>
-						<include>**</include>
-					</includes>
-				</fileset>
-			</filesets>
-		</configuration>
-		
-	</plugin>
-			
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/xtend-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>src/test/xtend-gen</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+
+			</plugin>
+
 		</plugins>
 	</build>
 </project>

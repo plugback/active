@@ -40,10 +40,10 @@ class CreateFieldProcessor extends AbstractMethodProcessor {
 				«FOR f : addedFields»
 					this.«f.simpleName» = «f.simpleName»;
 				«ENDFOR»
-				«IF annotatedMethod.returnType == void»
+				«IF annotatedMethod.returnType.void»
 					this.new_«annotatedMethod.simpleName»(«nm.parameters.map[simpleName].join(",")»);
 				«ENDIF»
-				«IF annotatedMethod.returnType != void»
+				«IF !annotatedMethod.returnType.void»
 					return this.new_«annotatedMethod.simpleName»(«nm.parameters.map[simpleName].join(",")»);
 				«ENDIF»
 			'''

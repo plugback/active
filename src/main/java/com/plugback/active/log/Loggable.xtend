@@ -20,7 +20,7 @@ class LoggableProcessor extends AbstractClassProcessor {
 			type = context.newTypeReference("org.slf4j.Logger")
 			initializer = ['''org.slf4j.LoggerFactory.getLogger(«cls.simpleName».class)''']
 			visibility = Visibility.PUBLIC
-			addAnnotation(context.findTypeGlobally("javax.persistence.Transient"))
+			addAnnotation(context.findTypeGlobally("javax.persistence.Transient").newAnnotationReference)
 		]
 
 		cls.addMethod('info') [

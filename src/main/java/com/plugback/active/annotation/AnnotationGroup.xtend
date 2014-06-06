@@ -9,6 +9,15 @@ import org.eclipse.xtend.lib.macro.TransformationContext
 import org.eclipse.xtend.lib.macro.declaration.ClassDeclaration
 import org.eclipse.xtend.lib.macro.declaration.MutableClassDeclaration
 
+
+
+/**
+ * AnnotationGroup let's you define a group of annotations to be added using a single annotation just generated.
+ * 
+ * For example, by adding the @AnnotationGroup(name="SecurePersistenceService", annotations=#[RequiresUser, Transactional, Service])
+ * annotation before a class declaration, the @SecurePersistenceService generated annotation can be used on a method and
+ * @RequiresUser, @Transactional, @Service annotations will be added to the method.
+ */
 @Target(ElementType.TYPE)
 @Active(AnnotationGroupProcessor)
 annotation AnnotationGroup {

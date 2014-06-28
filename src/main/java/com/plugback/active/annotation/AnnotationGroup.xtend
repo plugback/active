@@ -16,6 +16,13 @@ annotation AnnotationGroup {
 	Class<?>[] annotations
 }
 
+/**
+ * AnnotationGroup let's you define a group of annotations to be added using a single annotation just generated.
+ * 
+ * For example, by adding the @AnnotationGroup(name="SecurePersistenceService", annotations=#[RequiresUser, Transactional, Service])
+ * annotation before a class declaration, the @SecurePersistenceService generated annotation can be used on a method and
+ * @RequiresUser, @Transactional, @Service annotations will be added to the method.
+ */
 class AnnotationGroupProcessor extends AbstractClassProcessor {
 
 	override doTransform(MutableClassDeclaration annotatedClass, extension TransformationContext context) {

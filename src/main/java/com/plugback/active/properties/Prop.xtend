@@ -52,6 +52,15 @@ class PropertyGeneratorHelper {
 						return «field.simpleName»;
 					''']
 			]
+		else if (field.type.name.contains("List") &&
+			field.declaringType.findDeclaredMethod('get' + field.simpleName.toFirstUpper) == null)
+			field.declaringType.addMethod('get' + field.simpleName.toFirstUpper) [
+				returnType = field.type
+				body = [
+					'''
+						return java.utils.Collections.unmodifiableList(«field.simpleName»);
+					''']
+			]
 	}
 
 }

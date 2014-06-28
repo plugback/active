@@ -13,9 +13,9 @@ class TestAnnotationGroup {
 		'''
 			package com.salvatoreromeo.x
 			import com.plugback.active.annotation.AnnotationGroup
-			import com.plugback.active.async.Async
+			import com.plugback.active.fields.CreateField
 			
-			@AnnotationGroup(name = "MyGroup", annotations = #[Async])
+			@AnnotationGroup(name = "MyGroup", annotations = #[CreateField])
 			class Me{
 				
 				@MyGroup
@@ -30,11 +30,11 @@ class TestAnnotationGroup {
 			assertTrue(
 				generatedCode.contains(
 					'''
-					@AnnotationGroup(name = "MyGroup", annotations = { Async.class })
+					@AnnotationGroup(name = "MyGroup", annotations = { CreateField.class })
 					@SuppressWarnings("all")
 					public class Me {
 					  @MyGroup
-					  @Async
+					  @CreateField
 					  public String myMethod(final String ciao) {
 					    return InputOutput.<String>println("ok");
 					  }

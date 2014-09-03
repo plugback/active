@@ -7,7 +7,7 @@ To use Plugback Active you need:
 
 <ul>
 	<li>the latest version of Plugback Active, available on the maven repository. 
-	Check http://mvnrepository.com/artifact/com.plugback/active</li>
+	Check http://search.maven.org/#artifactdetails%7Ccom.plugback%7Cactive%7C1.0.3-BETA%7Cjar</li>
 	<li>the Xtend library</li>
 </ul>
 

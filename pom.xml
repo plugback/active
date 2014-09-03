@@ -4,7 +4,7 @@
 
 	<groupId>com.plugback</groupId>
 	<artifactId>active</artifactId>
-	<version>1.0.1-BETA</version>
+	<version>1.0.3-BETA</version>
 	<packaging>jar</packaging>
 
 	<name>active</name>
@@ -39,13 +39,13 @@
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.lib</artifactId>
-			<version>2.6.1</version>
+			<version>2.6.2</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
 			<artifactId>org.eclipse.xtend.core</artifactId>
-			<version>2.6.1</version>
+			<version>2.6.2</version>
 		</dependency>
 
 		<dependency>
@@ -96,7 +96,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
-				<version>2.6.1</version>
+				<version>2.6.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -109,6 +109,7 @@
 						</configuration>
 					</execution>
 				</executions>
+
 			</plugin>
 
 			<plugin>
@@ -192,21 +193,56 @@
 			</plugin>
 
 
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId> 
-				<version>1.1</version> <executions> <execution> <id>sign-artifacts</id> <phase>verify</phase> 
-				<goals> <goal>sign</goal> </goals> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 
 
+
 	</build>
 
-	<!-- <profiles> <profile> <id>release-sign-artifacts</id> <activation> <property> 
-		<name>performRelease</name> <value>true</value> </property> </activation> 
-		<build> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId> 
-		<version>1.1</version> <executions> <execution> <id>sign-artifacts</id> <phase>verify</phase> 
-		<goals> <goal>sign</goal> </goals> </execution> </executions> </plugin> </plugins> 
-		</build> </profile> </profiles> -->
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<description>Plugback Active is a set of active annotations for the Xtend programming language.</description>
 	<organization>
 		<name>Plugback</name>
